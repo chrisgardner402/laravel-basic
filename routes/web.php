@@ -11,20 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    $books = [
-        'Harry Potter',
-        'Laravel'
-    ];
-    return view('welcome')->with([
-        'books' => $books
-    ]);
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/hello', function () {
-    return view('hello');
-});
+Route::get('/hello', 'HomeController@hello');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'HomeController@contact');
