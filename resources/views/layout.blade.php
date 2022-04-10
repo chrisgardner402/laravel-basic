@@ -8,11 +8,6 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <ul>
-            <li><a href="/">Welcome</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/hello">Hello</a></li>
-        </ul>
         @yield('content')
     </body>
 </html>
