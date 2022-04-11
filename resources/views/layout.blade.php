@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title', 'Laravel')</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ mix('css/tailwind.css') }}" rel="stylesheet">
     </head>
     <body>
+        <div class="bg-red-400">hello</div>
         @yield('content')
     </body>
 </html>
