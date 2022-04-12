@@ -7,7 +7,8 @@
         <link href="{{ mix('css/tailwind.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div class="bg-red-400">hello</div>
-        @yield('content')
+        <div class="container mx-auto">
+            @yield('content')
+        </div>
     </body>
 </html>
