@@ -9,7 +9,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
@@ -45,11 +45,18 @@ class TaskController extends Controller
         ]);
     }
 
-    public function update(Task $task) {
+    public function update(Task $task)
+    {
         $task->update([
             'title' => request('title'),
             'body' => request('body')
         ]);
         return redirect('/tasks/'.$task->id);
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return redirect('/tasks');
     }
 }
