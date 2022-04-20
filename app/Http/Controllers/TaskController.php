@@ -34,6 +34,7 @@ class TaskController extends Controller
 
     public function show(Task $task)
     {
+        abort_unless(auth()->user()->owns($task), 403);
         return view('tasks.show', [
             'task' => $task
         ]);
@@ -41,6 +42,7 @@ class TaskController extends Controller
 
     public function edit(Task $task)
     {
+        abort_unless(auth()->user()->owns($task), 403);
         return view('tasks.edit', [
             'task' => $task
         ]);
@@ -48,6 +50,7 @@ class TaskController extends Controller
 
     public function update(Task $task)
     {
+        abort_unless(auth()->user()->owns($task), 403);
         request()->validate([
             'title' => 'required',
             'body' => 'required'
@@ -58,6 +61,7 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
+        abort_unless(auth()->user()->owns($task), 403);
         $task->delete();
         return redirect('/tasks');
     }
