@@ -9,7 +9,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::latest()->get();
+        $tasks = Task::latest()->where('user_id', auth()->id())->get();
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
@@ -26,7 +26,9 @@ class TaskController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        $task = Task::create(request(['title', 'body']));
+        $values = request(['title', 'body']);
+        $values['user_id'] = auth()->id();
+        $task = Task::create($values);
         return redirect('/tasks/'.$task->id);
     }
 
